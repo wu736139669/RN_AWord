@@ -14,10 +14,10 @@ import React, {
   TouchableOpacity,
   AlertIOS,
   ActivityIndicatorIOS,
+  RefreshControl,
 } from 'react-native';
 
 import InfoPage from './Info.js'
-var ControlledRefreshableListView = require('./lib/ControlledRefreshableListView');
 var REQUEST_URL = 'http://127.0.0.1:3000/users/list';
 var MOCKED_MOVIES_DATA = [
   {title: 'Title', year: '2015', posters: {thumbnail: 'http://i.imgur.com/UePbdph.jpg'}},
@@ -136,21 +136,23 @@ getInitialState: function() {
       return this.renderLoadingView();
     }
 
-    return (
-      <ControlledRefreshableListView
+return (
+      <ListView
         dataSource={this.state.dataSource}
         renderRow={this.renderMovie}
         renderSeparator={this.renderMovieRow}
         onEndReached={this.onEndReached}
-        renderFooter={this.renderFoot}
-        isRefreshing={this.state.isRefreshingArticles}
-        onRefresh={()=>this.onRefreshData()}
-        onResponderRelease={()=>this}
-        refreshDescription="加载中"
-        waitingDescription="松开可以刷新"
+        refreshControl={
+          <RefreshControl
+            refreshing={this.state.isLoading}
+            onRefresh={this.fetchData}
+            tintColor="#61BFA9"
+            title="刷新"
+            colors={['#ff0000', '#00ff00', '#0000ff']}
+            progressBackgroundColor="#61BFA9"/>}
         style={styles.listView}/>
     );
-  },
+},
   renderFoot:function(){
     return (
       <View style={styles.foot}>
