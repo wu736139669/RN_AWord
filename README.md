@@ -13,11 +13,11 @@ react native 编写的demo
 6: 用xcode 打开 testdemo.xcworkspace</br>
 </p1>
 
-![image](https://github.com/wu736139669/RN_AWord/blob/master/ios/ScreenShot/001.png)</br>
-![image](https://github.com/wu736139669/RN_AWord/blob/master/ios/ScreenShot/002.png)</br>
-![image](https://github.com/wu736139669/RN_AWord/blob/master/ios/ScreenShot/003.png)</br>
-![image](https://github.com/wu736139669/RN_AWord/blob/master/ios/ScreenShot/004.png)</br>
-![image](https://github.com/wu736139669/RN_AWord/blob/master/ios/ScreenShot/005.png)</br>
-![image](https://github.com/wu736139669/RN_AWord/blob/master/ios/ScreenShot/006.png)</br>
+![image](https://github.com/wu736139669/RN_AWord/blob/master/ios/ScreenShot/001.png)</br></br>
+![image](https://github.com/wu736139669/RN_AWord/blob/master/ios/ScreenShot/002.png)</br></br>
+![image](https://github.com/wu736139669/RN_AWord/blob/master/ios/ScreenShot/003.png)</br></br>
+![image](https://github.com/wu736139669/RN_AWord/blob/master/ios/ScreenShot/004.png)</br></br>
+![image](https://github.com/wu736139669/RN_AWord/blob/master/ios/ScreenShot/005.png)</br></br>
+![image](https://github.com/wu736139669/RN_AWord/blob/master/ios/ScreenShot/006.png)</br></br>
 
 
