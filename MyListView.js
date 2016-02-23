@@ -60,8 +60,6 @@ export default class MyListView extends Component{
   myfetchData(){
     this.setState({isLoading:true,isLoadingFail:false});
     this.props.fetchData().then((responseData)=>{
-    	console.log('接受到数据');
-    	console.log(responseData);
     	this.setState({
             isLoading: false,
             isLoadingFail: false,
@@ -104,13 +102,13 @@ export default class MyListView extends Component{
   pushInfo(index){
       this.props.navigator.push({
         title: 'New Page',
-        component: <InfoPage movie={this.state.dataSource.getRowData(0,index)}> </InfoPage>
-      }).bind(this);
+        component: <InfoPage movie={this.props.dataSource.getRowData(0,index)}> </InfoPage>
+      });
   }
   renderLoadingView(){
      if (this.state.isLoadingFail) {
       return (
-      <TouchableOpacity onPress={() =>this.myfetchData.bind(this)} style={styles.container} >
+      <TouchableOpacity onPress={() =>this.myfetchData()} style={styles.container} >
       <View style={styles.container}>
         <Text>
           {'点击刷新'}
@@ -141,7 +139,7 @@ export default class MyListView extends Component{
     return (
       
       <View style={styles.container} key={rowID}>
-      <TouchableOpacity onPress={(rowID) =>this.pushInfo.bind(this)} style={styles.container} >
+      <TouchableOpacity onPress={()=>{this.pushInfo(rowID)}} style={styles.container} >
         <Image
           source={{uri: movie.imageurl}}
           style={styles.thumbnail}/>

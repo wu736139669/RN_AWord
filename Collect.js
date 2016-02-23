@@ -119,8 +119,6 @@ getInitialState: function() {
     );
   },
   pushInfo:function(index){
-      console.log(this.state.dataSource.getRowData(0,index))
-
       this.props.navigator.push({
         title: 'New Page',
         component: <InfoPage movie={this.state.dataSource.getRowData(0,index)}> </InfoPage>
@@ -129,7 +127,7 @@ getInitialState: function() {
   renderLoadingView:function(){
      if (!this.state.isLoadingFail) {
       return (
-      <TouchableOpacity onPress={() =>this.fetchData()} style={styles.container} >
+      <TouchableOpacity onPress={() =>this.fetchData} style={styles.container} >
       <View style={styles.container}>
         <Text>
           {'点击刷新'}

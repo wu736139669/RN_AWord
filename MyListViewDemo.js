@@ -39,10 +39,7 @@ export default class MyListViewDemo extends Component{
           <Text style={styles.title}>
           随机
           </Text>
-        ),
-        event: function() {
-          this.fetchData();
-        }.bind(this)
+        )
       }
     })
   }
@@ -59,7 +56,7 @@ export default class MyListViewDemo extends Component{
       fetch(url)
         .then((response) => response.json())
         .catch((error) => {
-          reject(err);
+          reject(error);
         })
         .then((responseData) => {
           if(responseData){
@@ -82,7 +79,7 @@ export default class MyListViewDemo extends Component{
       <MyListView
         dataSource={this.state.dataSource}
         refreshTitle={'测试一下刷新'}
-        navigator={this.props.navigator}
+        {...this.props}
         fetchData={this.fetchData.bind(this)}/>
     );
   }
