@@ -54,6 +54,10 @@ export default class MyListView extends Component{
   }
 
   onRefresh(){
+    if (typeof this.props.refreshData === 'function') {
+      console.log('shuaxing')
+      this.props.refreshData()
+    }
     this.myfetchData();
   }
 //数据查询.
@@ -76,6 +80,15 @@ export default class MyListView extends Component{
         });
     });
   }
+  onEndReached(){
+    if (typeof this.props.loadMore === 'function') {
+     this.props.loadMore().then((responseData)=>{
+        },(error)=>{
+          AlertIOS.alert('没有更多数据');
+        });
+    };
+    
+  }
 
  render(){
   // return this.renderLoadingView();
@@ -88,10 +101,11 @@ export default class MyListView extends Component{
         dataSource={this.props.dataSource}
         renderRow={this.renderMovie.bind(this)}
         renderSeparator={this.renderMovieRow}
+        onEndReached={this.onEndReached.bind(this)}
         refreshControl={
           <RefreshControl
             refreshing={this.state.isLoading}
-            onRefresh={this.myfetchData.bind(this)}
+            onRefresh={this.onRefresh.bind(this)}
             tintColor="#61BFA9"
             title={this.props.refreshTitle}
             colors={['#ff0000', '#00ff00', '#0000ff']}

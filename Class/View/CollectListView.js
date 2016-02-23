@@ -68,7 +68,6 @@ export default class CollectListView extends Component{
         });
       });
   }
-
  render(){
     return (
       <MyListView

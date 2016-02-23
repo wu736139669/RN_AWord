@@ -18,7 +18,8 @@ import React, {
 import MyListView from './MyListView'
 var isPromise = require('is-promise')
 var REQUEST_URL = 'http://127.0.0.1:3000/users/list';
-
+var page = 1;
+var dataSource = [];
 export default class RandListView extends Component{
 
 	//初始化。
@@ -36,7 +37,7 @@ export default class RandListView extends Component{
       title: {
         component: (
           <Text style={styles.title}>
-          随机
+          首页
           </Text>
         )
       }
@@ -48,8 +49,7 @@ export default class RandListView extends Component{
   }
 //数据查询.
   fetchData(){
-    var page = Math.random() * 1000;
-    page = Math.floor(page);
+
     var url = REQUEST_URL + '?page=' + page;
     return new Promise((resolve, reject)=>{
       fetch(url)
@@ -58,11 +58,19 @@ export default class RandListView extends Component{
           reject(error);
         })
         .then((responseData) => {
+
           if(responseData){
+            var movieArr = dataSource;
+            for (var i in responseData.datas) {
+              movieArr.push(responseData.datas[i]);
+            };
+            if(page === 1){
+              dataSource = responseData.datas;
+            }
               this.setState({
-              dataSource: this.state.dataSource.cloneWithRows(responseData.datas),
+              dataSource: this.state.dataSource.cloneWithRows(dataSource),
             });
-            resolve(responseData.datas);
+              resolve(responseData.datas);
           }else{
             reject('none');
           }
@@ -72,14 +80,22 @@ export default class RandListView extends Component{
     })
       
   }
-
+ loadMore(){
+ 	page++;
+    return this.fetchData();
+ }
+ refreshData(){
+ 	page = 1;
+ }
  render(){
     return (
       <MyListView
         dataSource={this.state.dataSource}
-        refreshTitle={'随机刷新'}
+        refreshTitle={'刷新'}
         {...this.props}
-        fetchData={this.fetchData.bind(this)}/>
+        fetchData={this.fetchData.bind(this)}
+        loadMore={this.loadMore.bind(this)}
+       	refreshData={this.refreshData.bind(this)}/>
     );
   }
  
