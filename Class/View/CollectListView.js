@@ -1,4 +1,4 @@
-//3个主界面的listview
+//收藏页面
 
 'use strict';
 import React, {

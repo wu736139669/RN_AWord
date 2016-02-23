@@ -1,4 +1,4 @@
-
+//详情页面
 'use strict';
 import React, {
   AppRegistry,

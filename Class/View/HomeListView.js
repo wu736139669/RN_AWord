@@ -1,5 +1,4 @@
-//随机页面
-
+//主页
 'use strict';
 import React, {
   AppRegistry,
