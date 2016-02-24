@@ -53,7 +53,9 @@ export default class Info extends Component{
             style={styles.segmentControlContainer} >
             <Text>详情页</Text>
           </View>
-        )
+        ),
+        event: function() {
+        }.bind(this)
       },
     });
     

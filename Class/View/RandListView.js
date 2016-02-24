@@ -39,7 +39,9 @@ export default class RandListView extends Component{
           <Text style={styles.title}>
           随机
           </Text>
-        )
+        ),
+        event: function() {
+        }.bind(this)
       }
     })
   }

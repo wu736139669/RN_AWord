@@ -40,7 +40,9 @@ export default class CollectListView extends Component{
           <Text style={styles.title}>
           收藏
           </Text>
-        )
+        ),
+        event: function() {
+        }.bind(this)
       }
     })
   }
