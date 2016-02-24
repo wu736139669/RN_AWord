@@ -8,9 +8,7 @@ react native 编写的demo
 1: npm install</br>
 2: cd server && cd bin</br>
 3: node www</br>
-4: 在主目录下 cd ios</br>
-5: pod install</br>
-6: 用xcode 打开 testdemo.xcworkspace</br>
+4: 用xcode 打开 testdemo.xcworkspace</br>
 
 ![image](https://github.com/wu736139669/RN_AWord/blob/master/ios/ScreenShot/001.png)</br></br>
 ###
