@@ -30,7 +30,10 @@ router.get('/list',function(req, res, next){
             console.log(req.query);
 //            console.log(rest);
             var topicUrls = [];
-            if(typeof rest.text == 'undefined')return;
+            if(typeof(rest.text) == 'undefined'){
+                res.json('');
+                 return;
+            }
             var $ = cheerio.load(rest.text);
 
 

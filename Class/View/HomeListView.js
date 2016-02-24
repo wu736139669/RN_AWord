@@ -40,8 +40,8 @@ export default class RandListView extends Component{
           首页
           </Text>
         ),
-      event: function() {
-        }.bind(this)
+      // event: function() {
+      //   }.bind(this)
       }
     })
   }
